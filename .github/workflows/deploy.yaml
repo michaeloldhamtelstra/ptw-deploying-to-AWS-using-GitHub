@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     # Environment variables that can be used by any Step in this Job.
     env:
-      AWS_ACCOUNT_ID: 157153681450
-      AWS_REGION: ap-southeast-2
+      AWS_ACCOUNT_ID: 605561256632
+      AWS_REGION: us-east-1
     # TODO:
     permissions:
       id-token: write # Allows this Job to update the ID Token when it authenticates to AWS.
@@ -50,8 +50,7 @@ jobs:
       # Bootstrap CDK
       - name: Bootstrap CDK
         run: |
-          npm run cdk bootstrap aws://${{ env.AWS_ACCOUNT_ID }}/us-east-1 && \
-          npm run cdk bootstrap aws://${{ env.AWS_ACCOUNT_ID }}/${{ env.AWS_REGION }}
+          npm run cdk bootstrap aws://${{ env.AWS_ACCOUNT_ID }}/us-east-1
 
       # Deploy!
       - name: Deploy via CDK
